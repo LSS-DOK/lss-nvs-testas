@@ -22,13 +22,13 @@ export class WelcomeComponent {
   constructor(private router: Router) {}
 
   ngOnInit() : void {
-    this.difficulty = Number.parseInt(localStorage.getItem('difficulty') || '4');
-    let m = localStorage.getItem('mode') || 'classic';
+    this.difficulty = Number.parseInt(localStorage.getItem('nvs-difficulty') || '4');
+    let m = localStorage.getItem('nvs-mode') || 'classic';
     this.mode = m == 'classic' ? Mode.CLASSIC : Mode.REVERSE;
   }
   go() {
-    localStorage.setItem('difficulty', Math.min(Math.max(this.difficulty, 1), this.MAX_DIFFICULTY).toString());
-    localStorage.setItem('mode', this.mode == Mode.CLASSIC ? 'classic' : 'reverse');
+    localStorage.setItem('nvs-difficulty', Math.min(Math.max(this.difficulty, 1), this.MAX_DIFFICULTY).toString());
+    localStorage.setItem('nvs-mode', this.mode == Mode.CLASSIC ? 'classic' : 'reverse');
     this.router.navigateByUrl('klausimai/', { state: { welcomeShown: true, mode: this.mode, difficulty: this.difficulty }});
   }
 }
