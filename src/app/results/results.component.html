@@ -1,0 +1,9 @@
+<div class="container mt-5">
+    <div class="card">
+        <h1>Rezultatai:</h1>
+        <p>Atspėta pirmu sykiu: {{firstTryCounter}}</p>
+        <p>Prašovimų: {{wrongCounter}}</p>
+        <p>Taiklumas: {{(firstTryCounter / (firstTryCounter + wrongCounter)*100).toFixed()}}%</p>
+        <button class="btn btn-primary" routerLink="/klausimas/">Dar!</button>
+    </div>
+</div>

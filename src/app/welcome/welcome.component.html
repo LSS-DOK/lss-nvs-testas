@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <div class="card">
+        <h1>Sveiks, šauly!</h1>
+        <p>Čia yra atsitiktinės tvarkos testas, padėsiantis nepasimesti bendraujant negarsiniais valdymo signalais!</p>
+        <p><small>Sudarytas iš informacijos <a href="https://kam.lt/wp-content/uploads/2022/03/lietuvos-kareivio-knyga-2020-spaudai.pdf" target="_blank">Lietuvos kareivio knygoje</a>.</small></p>
+        <form>
+            <div class="mb-3">
+                <label for="difficultyId" class="form-label">Sunkumo lygis:</label>
+                <input name="difficulty" id="difficultyId" class="form-control" type="number" min="1" max="{{MAX_DIFFICULTY}}" [(ngModel)]="difficulty" value="{{difficulty}}" />
+                <div class="form-text">Pateikiamų pasirinkimų skaičius (1 - lengvas; {{MAX_DIFFICULTY}} - sunkus)</div>
+            </div>
+            <div class="mb-3">
+                <div class="form-check">
+                    <input name="reverse" class="form-check-input" type="checkbox" name="mode" id="mode_reverse" [(ngModel)]="mode" [checked]="mode == Mode.REVERSE">
+                    <label class="form-check-label" for="mode_reverse">Atbulinis režimas</label>
+                </div>
+            </div>
+        </form>
+        <button class="btn btn-primary" (click)="go()">Pradedam!</button>
+    </div>
+</div>

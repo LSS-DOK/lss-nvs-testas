@@ -1,0 +1,2 @@
+ng build --configuration production --base-href https://lss-dok.github.io/lss-nvs-testas/
+ngh --dir=dist/lss-nvs-testas

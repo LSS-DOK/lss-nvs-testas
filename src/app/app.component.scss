@@ -1,0 +1,57 @@
+.card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+li {
+    list-style-type: none;
+    margin: 10px 0;
+}
+
+li .card:hover {
+    border: 1px solid darkgreen;
+    cursor: pointer;
+}
+
+li .card.disabled {
+    border: 1px solid darkred;
+    color: gray;
+    cursor: not-allowed;
+}
+
+li .card.reverse {
+    border: 3px solid !important;
+}
+
+li .card.reverse:hover {
+    border: 3px solid darkgreen !important;
+}
+
+li .card.reverse.disabled {
+    border: 3px solid darkred !important;
+}
+
+.card.disabled img {
+    filter: grayscale(100%);
+}
+
+ol {
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.reverse-mode ol {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.reverse-mode li {
+    padding: 3px;
+    margin: 0;
+}
+
+.reverse-mode .card {
+    padding: 3px;
+    border-radius: 0;
+}

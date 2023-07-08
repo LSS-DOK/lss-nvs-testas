@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar progress-bar-striped bg-success" [ngStyle]="{ width: ((currentQuestion / questionList.length)*100).toString()+'%' }"></div>
+        </div>
+        <div class="d-flex justify-content-around py-2">
+            <div class="question-remain">
+                <span style="font-style: italic">{{currentQuestion+1}} iš {{questionList.length}}</span>
+            </div>
+        </div>
+        <div class="question">
+            <div class="card" *ngIf="mode == Mode.CLASSIC">
+                <h3>Koks tai signalas?</h3>
+                <div style="display: inline">
+                    <img src="{{questionList[currentQuestion].img}}" height="300px" width="412px"/>
+                </div>
+            </div>
+            <div class="card" *ngIf="mode == Mode.REVERSE">
+                <h3>Kaip rodomas šis signalas?</h3>
+                <div class="card" style="margin: 0;">
+                    <span><b>{{questionList[currentQuestion].title}}</b></span>
+                </div>
+            </div>
+        </div>
+        <div class="options" [ngClass]="{ 'reverse-mode': mode == Mode.REVERSE }">
+            <ol>
+                <li *ngFor="let option of questionList[currentQuestion].options" #button (click)="answer(button, currentQuestion, option)">
+                    <div *ngIf="mode == Mode.CLASSIC" class="card" [ngClass]="disabledButtons.includes(button) ? { disabled: 'yes' } : {}">{{option.title}}</div>
+                    <div *ngIf="mode == Mode.REVERSE" class="card reverse" [ngClass]="disabledButtons.includes(button) ? { disabled: 'yes' } : {}">
+                        <img src="{{option.img}}" width="138px" height="100px"/>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
