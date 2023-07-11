@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { QuestionService, IQuestion, IOption } from '../service/question.service';
-
-export enum Mode {
-  CLASSIC,
-  REVERSE
-}
+import { QuestionService, IQuestion, IOption, Mode } from '../service/question.service';
 
 @Component({
   selector: 'app-question',
@@ -44,7 +39,7 @@ export class QuestionComponent {
   }
 
   getAllQuestions() : IQuestion[] {
-    return this.questionService.getQuestions(this.difficulty);
+    return this.questionService.getQuestions(this.difficulty, this.mode);
   }
 
   answer(button: HTMLElement, questionNumber: number, opt : IOption) {

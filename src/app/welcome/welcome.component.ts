@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NUM_QUESTIONS, QuestionService } from '../service/question.service';
-import { Mode } from '../question/question.component';
+import { Mode } from '../service/question.service';
 
 @Component({
   selector: 'app-welcome',

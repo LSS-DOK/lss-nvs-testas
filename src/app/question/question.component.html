@@ -11,8 +11,8 @@
         <div class="question">
             <div class="card" *ngIf="mode == Mode.CLASSIC">
                 <h3>Koks tai signalas?</h3>
-                <div style="display: inline">
-                    <img src="{{questionList[currentQuestion].img}}" height="300px" width="412px"/>
+                <div>
+                    <img src="{{questionList[currentQuestion].img}}" style="max-width:100%;height:auto"/>
                 </div>
             </div>
             <div class="card" *ngIf="mode == Mode.REVERSE">
@@ -26,7 +26,7 @@
             <ol>
                 <li *ngFor="let option of questionList[currentQuestion].options" #button (click)="answer(button, currentQuestion, option)">
                     <div *ngIf="mode == Mode.CLASSIC" class="card" [ngClass]="disabledButtons.includes(button) ? { disabled: 'yes' } : {}">{{option.title}}</div>
-                    <div *ngIf="mode == Mode.REVERSE" class="card reverse" [ngClass]="disabledButtons.includes(button) ? { disabled: 'yes' } : {}">
+                    <div *ngIf="mode == Mode.REVERSE && option.img" class="card reverse" [ngClass]="disabledButtons.includes(button) ? { disabled: 'yes' } : {}">
                         <img src="{{option.img}}" width="138px" height="100px"/>
                     </div>
                 </li>
